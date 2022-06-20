@@ -1,0 +1,12 @@
+{
+  "name": "warpico",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client:dev": "npm run dev --workspace=client"
+  },
+  "workspaces": [
+    "client",
+    "common"
+  ]
+}

@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  warpico_postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - warpico_postgres_db:/var/lib/postgresql/data
+  warpico_redis:
+    image: bitnami/redis
+    environment:
+      - REDIS_PASSWORD=redis
+    ports:
+      - 6379:6379
+    volumes:
+      - warpico_cache:/data
+
+volumes:
+  warpico_cache:
+    driver: local
+  warpico_postgres_db:
+    driver: local
